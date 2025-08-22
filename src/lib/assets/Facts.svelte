@@ -2,6 +2,7 @@
     .section {
         align-items: start;
         justify-content: left;
+        padding-top: 50vh;
     }
 
     .facts {
