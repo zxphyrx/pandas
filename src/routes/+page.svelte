@@ -2,6 +2,8 @@
     import ZooBanner from "$lib/assets/Zoo.svelte";
     import Hero from "$lib/assets/Hero.svelte";
     import About from "$lib/assets/About.svelte";
+    import Vulnerable from "$lib/assets/Vulnerable.svelte";
+    import Facts from "$lib/assets/Facts.svelte";
 </script>
 
 <style>
@@ -13,3 +15,5 @@
 
 <Hero></Hero>
 <About></About>
+<Vulnerable></Vulnerable>
+<Facts></Facts>

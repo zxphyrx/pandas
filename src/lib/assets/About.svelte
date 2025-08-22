@@ -1,7 +1,9 @@
 <style>
-    h1 {
-        height: 100vh;
+    p {
+        font-size: 1.5rem;
     }
 </style>
 
-<h1>Hi</h1>
+<div class="section">
+    <p>The giant panda (Ailuropoda melanoleuca) is a bamboo-eating bear native to China.</p>
+</div>
