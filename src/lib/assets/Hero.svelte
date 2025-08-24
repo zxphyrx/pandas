@@ -2,6 +2,7 @@
     import { onMount } from "svelte";
     import { gsap } from "gsap";
     import { ScrollTrigger } from "gsap/ScrollTrigger";
+    import { base } from "$app/paths";
 
     let heroSection;
     let heroMountains;
@@ -100,11 +101,11 @@
 </style>
 
 <div bind:this={heroSection} class="hero section">
-    <img bind:this={heroFog1} class="fogImg" id="fog1" src="/fog/1.png">
-    <img bind:this={heroFog2} class="fogImg" id="fog2" src="/fog/2.png">
+    <img bind:this={heroFog1} class="fogImg" id="fog1" src="{base}/fog/1.png">
+    <img bind:this={heroFog2} class="fogImg" id="fog2" src="{base}/fog/2.png">
     <h1 bind:this={heroTitle}>the giant panda</h1>
     <div id="mountains">
-        <img id="mountainsImg" bind:this={heroMountains} src="/mountains.png" alt="mountains">
+        <img id="mountainsImg" bind:this={heroMountains} src="{base}/mountains.png" alt="mountains">
         <div id="mountainsFade"></div>
     </div>
 </div>

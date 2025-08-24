@@ -30,6 +30,8 @@
 </style>
 
 <script>
+    import { base } from "$app/paths";
+
     function randRange(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
@@ -101,7 +103,7 @@
 
 <div class="section">
     <div class="panda">
-        <img src="/panda.svg">
+        <img src="{base}/panda.svg">
     </div>
 
     <p id="message">{path.message}</p>

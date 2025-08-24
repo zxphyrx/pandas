@@ -24,6 +24,7 @@
     import { onMount, tick } from "svelte";
     import { gsap } from "gsap";
     import { ScrollTrigger } from "gsap/ScrollTrigger";
+    import { base } from "$app/paths";
 
     let facts = [];
     let panelElem;
@@ -34,7 +35,7 @@
     gsap.registerPlugin(ScrollTrigger);
     
     onMount(async () => {
-        fetch("/facts.json")
+        fetch(`${base}/facts.json`)
         .then((res) => {
             return res.json();
         })
