@@ -58,8 +58,7 @@
                     endTrigger: factsEnd,
                     end: "bottom bottom",
                     scrub: true,
-                    pin: true,
-                    markers: true
+                    pin: true
                 },
                 x: -factsWidth
             }

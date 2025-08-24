@@ -2,6 +2,10 @@
     p {
         font-size: 1.5rem;
     }
+
+    .section {
+        z-index: 10;
+    }
 </style>
 
 <div class="section">
