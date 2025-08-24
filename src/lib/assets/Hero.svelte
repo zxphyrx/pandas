@@ -1,12 +1,13 @@
 <script>
     import { onMount } from "svelte";
     import { gsap } from "gsap";
-    import { ScrollTrigger } from "gsap/all";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
 
     let heroSection;
     let heroMountains;
     let heroTitle;
-    let heroFog;
+    let heroFog1;
+    let heroFog2;
     let heroPin;
 
     gsap.registerPlugin(ScrollTrigger);
@@ -22,9 +23,24 @@
                 pin: heroTitle
             }
         })
-        .fromTo(heroFog, {
-            
-        })
+        .fromTo(heroFog1,
+            {
+                top: "40vh"
+            },
+            {
+                top: 0,
+                duration: 1
+            },
+        0)
+        .fromTo(heroFog2,
+            {
+                top: "40vh"
+            },
+            {
+                top: 0,
+                duration: 2
+            },
+        0)
     })
     
 </script>
@@ -49,21 +65,28 @@
             div#mountainsFade {
                 position: absolute;
                 inset: 0;
-                background-image: linear-gradient(to bottom, transparent 70%, black 100%);
+                background-image: linear-gradient(to bottom, transparent 70%, rgb(8, 8, 8) 100%);
                 pointer-events: none;
                 height: 100%;
             }
         }
         
-        img#fogImg {
+        img.fogImg {
             height: auto;
             width: 100vw;
-            position: fixed;
+            position: absolute;
             top: 0;
-            left: 0;
             z-index: 2;
             mix-blend-mode: screen;
-            background-image: linear-gradient(to bottom, transparent 70%, black 100%);
+        }
+
+        img.fogImg#fog1 {
+            left: -40vw;
+        }
+        
+        img.fogImg#fog2 {
+            width: 50vw;
+            left: 60vw;
         }
         
         h1 {
@@ -77,8 +100,8 @@
 </style>
 
 <div bind:this={heroSection} class="hero section">
-
-    <img bind:this={heroFog} id="fogImg" src="/fog/1.jpg">
+    <img bind:this={heroFog1} class="fogImg" id="fog1" src="/fog/1.png">
+    <img bind:this={heroFog2} class="fogImg" id="fog2" src="/fog/2.png">
     <h1 bind:this={heroTitle}>the giant panda</h1>
     <div id="mountains">
         <img id="mountainsImg" bind:this={heroMountains} src="/mountains.png" alt="mountains">

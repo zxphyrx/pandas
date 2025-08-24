@@ -3,11 +3,6 @@
 </style>
 
 <script>
-    let paths = [
-        {
-            "text": "Feed him"
-        }
-    ]
 </script>
 
 <div class="section">

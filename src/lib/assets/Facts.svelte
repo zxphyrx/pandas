@@ -3,9 +3,10 @@
         align-items: start;
         justify-content: left;
         padding-top: 50vh;
+        z-index: 2;
     }
 
-    .facts {
+    .panel {
         width: fit-content;
         display: flex;
         flex-direction: row;
@@ -22,10 +23,10 @@
 <script>
     import { onMount, tick } from "svelte";
     import { gsap } from "gsap";
-    import { ScrollTrigger } from "gsap/all";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
 
     let facts = [];
-    let factsElem;
+    let panelElem;
     let factsEnd;
     let factsWidth;
     let factsScrollSpeed = 0.5;
@@ -44,16 +45,16 @@
         await tick();
     })
 
-    $: if(facts.length && factsElem) {
+    $: if(facts.length && panelElem) {
         factsWidth = (facts.length - 1) * window.innerWidth;
 
-        gsap.fromTo(factsElem,
+        gsap.fromTo(panelElem,
             {
                 x: 0
             },
             {
                 scrollTrigger: {
-                    trigger: factsElem,
+                    trigger: panelElem,
                     start: "center center",
                     endTrigger: factsEnd,
                     end: "bottom bottom",
@@ -67,8 +68,8 @@
 
 </script>
 
-<div class="section">
-    <div bind:this={factsElem} class="facts">
+<div class="facts section">
+    <div bind:this={panelElem} class="panel">
         {#each facts as fact}
             <div class="fact">
                 <h2>

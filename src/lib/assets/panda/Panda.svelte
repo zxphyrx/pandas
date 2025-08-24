@@ -8,6 +8,7 @@
     #message {
         text-align: center;
         width: 100vw;
+        font-size: 1.5rem;
     }
 
     .buttons {
@@ -21,6 +22,9 @@
             outline: none;
             border: none;
             padding: 4px;
+            margin-right: 8px;
+            border-radius: 8px;
+            cursor: pointer;
         }
     }
 </style>
@@ -32,7 +36,6 @@
 
     function handleClick(button) {
         path = button.paths[randRange(0, button.paths.length - 1)];
-        buttons = path.buttons;
     }
 
     let paths = [
@@ -71,6 +74,9 @@
                                     "paths": [
                                         {
                                             "message": "You lock eyes, and it's almost like he's smiling!"
+                                        },
+                                        {
+                                            "message": "You lock eyes, and he growls at you."
                                         }
                                     ]
                                 },
@@ -90,7 +96,7 @@
         }
     ]
     let path = $state(paths[randRange(0, paths.length - 1)]);
-    let buttons = $state(path.buttons);
+    let buttons = $derived(path.buttons);
 </script>
 
 <div class="section">
