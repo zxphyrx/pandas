@@ -18,6 +18,14 @@
         width: 100vw;
         justify-content: center;
         align-items: center;
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        p {
+            font-size: 1.25rem;
+        }
     }
 </style>
 <script>
