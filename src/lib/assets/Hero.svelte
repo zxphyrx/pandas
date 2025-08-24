@@ -50,6 +50,7 @@
 <style lang="scss">
     .hero {
         height: fit-content;
+        background-image: radial-gradient(rgb(16, 145, 196) 10%, rgb(8, 8, 8) 100%);
 
         div#mountains {
             height: fit-content;

@@ -2,7 +2,6 @@
     .section {
         align-items: start;
         justify-content: left;
-        padding-top: 50vh;
         z-index: 2;
     }
 
@@ -13,32 +12,50 @@
     }
 
     .fact {
+        height: 100vh;
+        width: 100vw;
         display: flex;
         flex-direction: column;
-        width: 100vw;
         justify-content: center;
         align-items: center;
+        background-size: 100%;
+        background-repeat: no-repeat;
 
-        h2 {
-            font-size: 2rem;
-        }
+        .fact-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(8, 8, 8, 0.75);
+            backdrop-filter: blur(10px);
+            padding: 32px;
+            border-radius: 16px;
 
-        p {
-            font-size: 1.25rem;
+            h2 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1.25rem;
+            }
         }
     }
 </style>
+
 <script>
     import { onMount, tick } from "svelte";
     import { gsap } from "gsap";
     import { ScrollTrigger } from "gsap/ScrollTrigger";
     import { base } from "$app/paths";
 
+    const shuffle = a=>a.sort(()=>Math.random()-0.5);
+
     let facts = [];
     let panelElem;
     let factsEnd;
     let factsWidth;
     let factsScrollSpeed = 0.5;
+    let pandaImgs = shuffle([1, 2, 3, 4]);
 
     gsap.registerPlugin(ScrollTrigger);
     
@@ -80,13 +97,15 @@
 <div class="facts section">
     <div bind:this={panelElem} class="panel">
         {#each facts as fact}
-            <div class="fact">
-                <h2>
-                    {fact.title}
-                </h2>
-                <p>
-                    {fact.text}
-                </p>
+            <div class="fact" style="background-image: url('{base}/pandas/panda{pandaImgs.pop()}.jpg');">
+                <div class="fact-text">
+                    <h2>
+                        {fact.title}
+                    </h2>
+                    <p>
+                        {fact.text}
+                    </p>
+                </div>
             </div>
         {/each}
     </div>
