@@ -55,7 +55,12 @@
     let factsEnd;
     let factsWidth;
     let factsScrollSpeed = 0.5;
+    let imgPath = "pandas";
     let pandaImgs = shuffle([1, 2, 3, 4]);
+
+    if(Math.floor(Math.random() * 100) == 1) {
+        imgPath = "cats";
+    }
 
     gsap.registerPlugin(ScrollTrigger);
     
@@ -96,8 +101,9 @@
 
 <div class="facts section">
     <div bind:this={panelElem} class="panel">
-        {#each facts as fact}
-            <div class="fact" style="background-image: url('{base}/pandas/panda{pandaImgs.pop()}.jpg');">
+        {#each facts as fact, factIndex}
+            <!-- svelte-ignore a11y_no_static_element_interactions -->
+            <div class="fact" style="background-image: url('{base}/{imgPath}/{pandaImgs[factIndex]}.jpg');">
                 <div class="fact-text">
                     <h2>
                         {fact.title}
