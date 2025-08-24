@@ -29,16 +29,16 @@
                 top: "40vh"
             },
             {
-                top: 0,
+                top: "30vh",
                 duration: 1
             },
         0)
         .fromTo(heroFog2,
             {
-                top: "40vh"
+                top: "60vh"
             },
             {
-                top: 0,
+                top: "50vh",
                 duration: 2
             },
         0)
