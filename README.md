@@ -1,38 +1,10 @@
-# sv
+# pandas
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+This is a website about giant pandas!
 
-## Creating a project
+# interactive elements
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```sh
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+- A mountain and cloud parallax! I used gsap ScrollTriggers to change the `top` values differently on scroll.
+- A side-scrolling facts panel with random panda backgrounds. I again used ScrollTriggers to pin the panel and change the x based on the scroll. I implemented the pictures by shuffling an array with the file numbers. Also, there's an easter egg where there's a 1 in 100 chance of getting cat pictures instead of pandas!
+- A card stacking effect! I did this by using ScrollTriggers again (I love gsap) and pinning the section behind the section that's being scrolled.
+- The panda you can interact with! The dialog paths are chosen randomly.
