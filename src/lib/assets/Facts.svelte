@@ -50,13 +50,15 @@
 
     const shuffle = a=>a.sort(()=>Math.random()-0.5);
 
-    let facts = [];
+    let facts = $state([]);
     let panelElem;
     let factsEnd;
-    let factsWidth;
+    let windowWidth = $state();
+    let factsWidth = $derived((facts.length - 1) * windowWidth);
     let factsScrollSpeed = 0.5;
     let imgPath = "pandas";
     let pandaImgs = shuffle([1, 2, 3, 4]);
+    let scrollAnim;
 
     if(Math.floor(Math.random() * 100) == 1) {
         imgPath = "cats";
@@ -76,10 +78,14 @@
         await tick();
     })
 
-    $: if(facts.length && panelElem) {
+    $effect(() => {
         factsWidth = (facts.length - 1) * window.innerWidth;
 
-        gsap.fromTo(panelElem,
+        if(scrollAnim) {
+            scrollAnim.scrollTrigger.kill();
+        }
+
+        scrollAnim = gsap.fromTo(panelElem,
             {
                 x: 0
             },
@@ -95,8 +101,7 @@
                 x: -factsWidth
             }
         )
-    }
-
+    })
 </script>
 
 <div class="facts section">
